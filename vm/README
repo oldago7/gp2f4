@@ -1,0 +1,75 @@
+# ASIX2 M14_1 2022-2023 FJE CLOT
+
+## Requisits
+
+Requereix tenir instal·lat previament:
+1. Git https://git-scm.com/
+2 Virtualbox https://www.virtualbox.org/
+3. Vagrant https://www.vagrantup.com/
+
+## Pasos a seguir
+
+1. Configuració de las característiques de la màquina.
+
+	1.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla.
+	1.2 Modifica els parametres segons el que es requereix.
+		config.vm.box = "debian/bullseye64"
+		config.vm.hostname = "grup07.fjeclot07.net"
+		config.vm.provider "virtualbox" do |v|
+		# v.gui = true
+		v.name = "grup07"
+		v.memory = 2048
+		v.cpus = 2
+		v.customize ['modifyvm', :id, '--clipboard', 'bidirectional']  
+
+2. Afegeix el servidor MySQL mariadb-server, el client MySQL mariadb-client, el mòdul de MySQL per PHP i composer
+
+	2.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla.
+	2.2 Aprovisiona el programari extra a la secció config.vm.provision afegint:
+		apt-get install -y mariadb-server mariadb-client
+		apt-get install -y php7.4-mysql
+		apt-get install -y composer
+
+3. Afegeix un port forwarding per exposar el port 443 de la màquina virtual al port 8443 de la màquina host:
+
+	3.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla. 
+	3.2 Afegeix config.vm.network "forwarded_port", guest: 443, host: 8443
+	
+4. Afegeix un adaptador pont
+	4.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla. 
+	4.2 Afegeix config.vm.network "public_network"
+	
+5. Sincronitzar la carpeta "/var/www/html" de la màquina virtual amb la carpeta codi de la màquina física "~\projectes\gp2f4\codi".
+	
+	5.1 Obre Vagrantfile amb nano, geany, qualsevol IDE o qualsevol editor de texte pla. 
+	5.2 Afegeix config.vm.synced_folder "~\projectes\gp2f4\codi", "/var/www/html"
+
+6. Inicia la màquina virtual amb les ordres de `Vagrant`:
+
+	vagrant up
+
+7. Accedeix a la màquina virtual per SSH, per poder realitzar el curs:
+
+	vagrant ssh
+
+8. Sortir de la màquina virtual:
+
+	exit
+	
+9. Atura la màquina virtual amb les ordres de `Vagrant`:
+
+	vagrant halt
+
+## Problemes amb vagrant ssh
+
+Si no aconseguim accedir amb vagrant ssh, realitza les següents passes:
+
+1. Accedeix a Virtualbox, selecciona la màquina virtual de la formació devops docker i prem el botó de "Mostra". 
+2. Accedeix a la pantalla de terminal de la màquina virtual de Virtuabbox. Això desbloquejarà la creació de la màquina virtual.
+3. Torna a la línia d'ordres i des de dins del directori m08uf1pr2, executa:
+
+vagrant provision
+vagrant ssh
+
+Tanbé podeu accedir directament a la màquina virtual, via Virtualbox, amb usuari `vagrant` i contrasenya `vagrant`.
+
