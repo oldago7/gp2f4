@@ -1,13 +1,17 @@
 <html>
 <head>
-	<title>IP</title>
+	<title>CALCULADORA DE SUBXARXES</title>
 </head>
 	<body>
-		<p><u>IP</u></p>		
+		<p><u>CALCULADORA DE SUBXARXES</u></p>		
 		<?php
+			require_once(__DIR__ . '/vendor/autoload.php');
+
 			#Obtenció del primer operand
+			$sub = new IPv4\SubnetCalculator();
+
 			if ($_GET["op1"] =="") {
-				$operand1 = 0;
+				$ipAddress = $sub->getIPAddress();
 			}
 			else{
 				$operand1 = $_GET["op1"];
@@ -15,7 +19,7 @@
 			#
 			#Obtenció del segon operand
 			if ($_GET["op2"] =="") {
-				$operand2 = 0;
+				$subnetMask = $sub->getSubnetMask();
 			}
 			else{
 				$operand2 = $_GET["op2"];
