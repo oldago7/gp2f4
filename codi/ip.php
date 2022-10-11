@@ -5,13 +5,12 @@
 	<body>
 		<p><u>CALCULADORA DE SUBXARXES</u></p>		
 		<?php
-			require_once(__DIR__ . 'C:\Users\Olga\projectes\gp2f4\codi\vendor\autoload.php');
+			require_once(__DIR__ . '/vendor/autoload.php');
 
 			#Obtenció del primer operand
 
 			if ($_GET["op1"] =="") {
 				$operand1 = 0;
-				
 			}
 			else{
 				$operand1 = $_GET["op1"];
