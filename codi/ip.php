@@ -3,7 +3,7 @@
 	<title>CALCULADORA DE SUBXARXES</title>
 </head>
 	<body>
-		<p><u>CALCULADORA DE SUBXARXES</u></p>		
+		<p><u>CALCULADORA DE SUBXARXES cambio</u></p>		
 		<?php
 			require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -30,7 +30,7 @@
 			$network= $sub->getNetworkPortion();
 			$broadcastAddress = $sub->getBroadcastAddress();
 			$addressableHostRange = $sub->getAddressHostRange();
-			echo "<p>Dirección IP cambio: $operand1  $operand2<p>";
+			echo "<p>Dirección IP: $operand1  $operand2<p>";
 						
 		?>
 		<a href="ip.html">Torna a la pàgina anterior</a>
