@@ -30,7 +30,7 @@
 			echo "<p>Red: $network / $operand2<p>";
 			$broadcastAddress = $sub->getBroadcastAddress();
 			echo "<p>Broadcast: $broadcastAddress <p>";
-			$addressableHostRange = $sub->getAddressHostRange();
+			$addressableHostRange = $sub->getAddressableHostRange();
 			echo "<p>Rang de hosts: $addressableHostRange[0] - $addressableHostRange[1] <p>";
 			
 						
