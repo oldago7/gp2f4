@@ -27,7 +27,7 @@
 			echo "<p>Dirección IP:$operand1/$operand2<p>";
 			$sub = new IPv4\SubnetCalculator($_GET["op1"],$_GET["op2"]);
 			$network = $sub->getNetworkPortion();
-			echo "<p>$network<p>";
+			echo "<p>$network/$operand2<p>";
 			$broadcastAddress = $sub->getBroadcastAddress();
 			$addressableHostRange = $sub->getAddressHostRange();
 			echo "<p>Dirección IP:$operand1<p>";
