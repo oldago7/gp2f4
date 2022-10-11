@@ -25,12 +25,13 @@
 				$operand2 = $_GET["op2"];
 			}
 			#
+			echo "<p>Dirección IP:<p>";
 			#Obtencio del resultat i mostrant el resultat
 			$sub = new IPv4\SubnetCalculator([$_GET["op1"],$_GET["op2"]]);
 			$network= $sub->getNetworkPortion();
 			$broadcastAddress = $sub->getBroadcastAddress();
 			$addressableHostRange = $sub->getAddressHostRange();
-			echo "<p>Dirección IP: $sub<p>";
+			
 						
 		?>
 		<a href="ip.html">Torna a la pàgina anterior</a>
