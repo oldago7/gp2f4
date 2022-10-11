@@ -30,7 +30,7 @@
 			$network= $sub->getNetworkPortion();
 			$broadcastAddress = $sub->getBroadcastAddress();
 			$addressableHostRange = $sub->getAddressHostRange();
-			echo"<p>Dirección IP: $operand1 / $operand2<p><br>";
+			echo"<p>Dirección IP: $operand1  $operand2<p>";
 						
 		?>
 		<a href="ip.html">Torna a la pàgina anterior</a>
