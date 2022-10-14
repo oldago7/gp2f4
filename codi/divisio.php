@@ -25,6 +25,6 @@
 			$resultat = $operand1 / $operand2;
 			echo "<p>El resultat de $operand1 / $operand2 és igual a $resultat</p>";			
 		?>
-		<a href="resta.html">Torna a la pàgina anterior</a>
+		<a href="divisio.html">Torna a la pàgina anterior</a>
 	</body>
 </html>
